@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %} Sales {% endblock %}
+
+{% block content %} 
+<div class="container">
+    <h3>Welcome to Sales</h3>
+    <P>This are the latest sales based on all the products that have been sold since Q1.</P>
+</div>
+<div class="container">
+    <form action="/make_sale" method="post">
+        <div>
+            <select name="pid">
+                <option value="">Select product</option>
+                {% for product in products %}
+                <option value={{product[0]}}>{{product[1]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class=" mt-4">
+            <label for=""><strong>Quantity</strong></label> <br>
+            <input type="number" name="quantity">
+        </div>
+
+        <div class="mt-4">
+            <button type="submit"><strong>Make sale</strong></button>
+        </div>
+    </form>
+</div>
+<div class="container mt-4">
+    <table class="table table-striped-columns table table-hover table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Sales ID</th>
+                <th scope="col">PID</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for sale in sales%}
+            <tr>
+                <td data-label="">{{sale[0]}}</td>
+                <td data-label="">{{sale[1]}}</td>
+                <td data-label="">{{sale[2]}}</td>
+                <td data-label="">{{sale[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

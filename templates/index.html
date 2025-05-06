@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if data %}
+    <h1>SANDE'S STORE.</h1>
+    {% else %}
+    <p>data not provided</p>
+    {% endif %}
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad accusamus eligendi temporibus repellendus
+        perferendis adipisci numquam quia unde ipsum, eos nisi dolorum, non animi hic quibusdam, doloremque
+        veniam
+        optio
+        impedit.</p>
+</div>
+<div class="container">
+    {% for num in num%}
+    <li>{{num}}</li>
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -30,7 +30,7 @@ def fetch_data(table):
 
 products=fetch_data('products')
 sales=fetch_data('sales')
-users=fetch_data('users')
+
 #print("products from fetch data func:\n", products)
 # print("sales from fetch data func:\n", sales)
 # print("users from fetch data func:\n", users)

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %} Register {% endblock %}
+
+{% block content %} 
+<div class="container">
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Full Name</label>
+            <input type="text" class="form-control" name="name" id="" aria-describedby="">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label fw-bold">Email_address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Phone_Number</label>
+            <input type="tel" class="form-control" name="phone" id="" aria-describedby="">
+        </div>      
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
+            <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock% }

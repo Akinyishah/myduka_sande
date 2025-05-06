@@ -1,13 +1,15 @@
 from flask import Flask,render_template,request,redirect,url_for
-from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day
+from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users
+from flask_bcrypt import Bcrypt
 
 app=Flask(__name__)
+
+#initializion of bcrypt.
+bcrypt=Bcrypt(app)
 
 @app.route('/')
 def home():
     return render_template("index.html")
-
-
 
 @app.route('/products')
 def products():
@@ -61,6 +63,32 @@ def Dashboard():
     return render_template("dashboard.html",
                            product_name=product_name,p_product=p_product,s_product=s_product,
                            date=date,s_day=s_day,p_day=p_day)
+
+
+@app.route('/Register',methods=['POST'])
+def register():
+     name=request.form['name']
+     email=request.form['email']
+     phone_number=request.form['phone']
+     password=request.form['pass']
+
+     hashed_password=bcrypt.check_password_hash(password).decode('utf-8')
+     user=check_user(email)
+     if user ==None:
+         new_user=(name,email,phone_number,hashed_password)
+         add_users(new_user)
+         return redirect(url_for('login')) #passing name of the function
+     else:
+         pass
+
+     return render_template('register.html')
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
 
 
 app.run(debug=True)

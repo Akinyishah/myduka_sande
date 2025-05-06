@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <p>{{product_name}}</p>
+    <p>{{p_product}}</p>
+    <p>{{s_product}}</p>
+    <p>{{p_day}}</p>
+    <p>{{s_day}}</p>
+  
+  </div>
+  <div class="container">
+    <canvas id="bar-chart" width="800" height="450"></canvas>
+  </div>
+  <div class="container">
+    <canvas id="line-chart" width="800" height="450"></canvas>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script>
+    new Chart(document.getElementById("bar-chart"), {
+      type: 'bar',
+      data: {
+        labels: {{ product_name | safe}},
+      datasets: [
+      {
+        label: "sales per product (KSH)",
+        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2"],
+        data: {{ s_product | safe}},
+                      },
+      {
+        label: "Profit per product (KSH)",
+        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#3e95cd", "#8e5ea2"],
+        data: {{ p_product | safe}},
+                      },
+    ]
+              },
+      options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Sales and Profit per product'
+      }
+    }
+          });
+  
+  
+    //linechart
+    new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: {{ date | safe}},
+      datasets: [{
+        data: {{ p_day | safe}},
+      label: "Profit per day",
+      borderColor: "#3e95cd",
+      fill: false
+        }, {
+        data: {{ s_day | safe}},
+      label: "Sales per day",
+      borderColor: "#8e5ea2",
+      fill: false
+        }
+    ]
+    },
+      options: {
+      title: {
+        display: true,
+        text: 'Sale and product per Day'
+      }
+    }
+  });
+  
+  </script>
+  
+
+
+{% endblock %}

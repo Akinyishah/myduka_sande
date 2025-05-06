@@ -1,0 +1,78 @@
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    nav {
+      background-color: #333;
+      padding: 1em;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    .hero {
+      background-color: #4CAF50;
+      color: white;
+      padding: 2em;
+      text-align: center;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 1em auto 0;
+      font-size: 1.1em;
+    }
+    section {
+      padding: 2em;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      padding: 0.5em;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table th, table td {
+      padding: 1em;
+      border-bottom: 1px solid #ddd;
+    }
+    table th {
+      background: #eee;
+    }
+    button {
+      padding: 0.5em 1em;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>

@@ -1,0 +1,245 @@
+#FLASK-its a framework used to build an application
+#what is a framework-software used to build web applications e.g FLASK,DJANGO,FASTAPI-python frameworks 
+    .NET-C#
+    Spring-Java
+    Ruby on Rails-Ruby
+    we use Frameworks on top of languages 
+    Comes with ready made tools for you to build applications 
+
+#flask framework-is an application programming interface that allows us to build web applications 
+using python. Flask is often classified as a micro-framework,because it does not require  particular tools and library to function.  
+
+
+#what is a library and examples of library 
+    this is a pre-written code that helps solves specific problems or adds certain features 
+    #concept of building a house:-
+    OPTION1-this is the library
+    -identify land,identify requirements,design the house,go the hardware, 
+    Library is a like a store that has hammer,nails,wood,ironsheet
+    with library the programmer is in control of usage.
+
+
+    OPTION2-This is the framework
+    -Go to an engineer and architect and get a predesigned(blueprint) house with all the tools and 
+    materials alreday identified and provided
+    -with Framework its structured hence the programmer
+    has to follow a certain conventions and practices to achieve desired goal
+#difference between a framework and a library
+    -with Framework its structured hence the programmer
+    has to follow a certain conventions and practices to achieve desired goal WHILE LIBRARY
+    -Library is a like a store that has hammer,nails,wood,ironsheet
+    with library the programmer is in control of usage.
+
+
+#ROUTING- Mechanism used to map URLs to view functions -system for resource navigation.
+-connect function to a URL-
+#what is a route- Aroute is a  path in the URL 
+
+Definition-part of the URL that determines what functions to
+            execute when a specific URL is accessed or visited 
+
+www.myduka.com/co.ke -this is the URL
+www.myduka/products.com-this is now a route where resources being provided here are only about products 
+techcamp.co.ke- this is a URL
+techcamp.co.ke/about us- this is a rule- this is a path           
+
+#HOW DO WE IMPLEMENT ROUTING IN FLASK?
+@app.route()- this is a decorator:function that allows you to modify the behaviour of other functions 
+has a prefix which is '@'
+
+BELOW ARE EXAMPLES 
+
+@app.route('/products)
+def products():
+    products=fetch_data('productd')
+    return products
+
+
+@app.route('/login)
+def login():    
+
+#In summary, in Flask, a decorator like @app.route() is a Python mechanism used to map URLs to view functions, 
+#enabling the framework to route incoming HTTP requests to the appropriate handler functions.
+
+#PARARAMETERS THAT CAN BE PASSED IN A ROUTE FUNCTION-decorator
+1.Rule- specific path yopu want to access  e.g /, /products,/sales,/users- This defines the path a user accesses
+ the browser(index.html is / only at the begining)
+
+ -We have been returning strings step forward 
+ return a simple HTML page (homepage)
+ SERVE HTML PAGES FOLLOW THE BELOW RULES:
+                  MY DUKA PROJECT structured
+myduka-folder containing the entire project                
+    -main.py
+    -database.py
+ create a folder that holds all the HTML stuff 
+    1.templates(all html files will be inside here() e.g  -follows casing & syntax
+    index.html.
+    sales.html.
+    products.html )   
+    2.static-(Files that do not change much)
+    -all static files which are the 
+    styling e.g myduka.css.style.css,home.css
+    images
+    videos
+    java script files
+    favicons-small logos that appear at the top there.
+    fonts, PDF files
+#
+
+#RENDERING- Process of serving HTML with Flask
+Goal is to display HTML page file using flask
+
+#IMPLEMENTATION-
+we render HTML pages using functions provided by flask
+its called render_template()-this function:
+1.has to be imported from flask in order to be used next to import from flask put a comma then render_template
+2.it takes some parameters - 
+
+            1.HTMLPAGES- (full name of my HTML page)
+e.g render_template('index.html')
+            2.VARIABLE HOLDING data
+
+ #IMPLEMENTING PASSING DATA FROM FLASK TO HTML
+    - To implement the above we have to use tools provided by flask        
+    #tool is called jinja pass data inform of variables from flask to HTML 
+     
+    #WHAT IS JINJA?-Its a templating engine intergrated with FLASK to render(return) dynamic HTML pages-
+    #{dynamic means it can take some data and the data changes depending on user input}
+    TEMPLATING ENGINE-Tool in web development used to generate dynamic HTML
+
+    JINJA IS JUST A SYNTAX {{}} - written in form of 2 curly brackets to its NOT IMPORTED 
+    *to pass a variable using jinja write the correct variable name inside the 2 curly brackets e.g
+    name="Akinyi Shah"
+
+    return render_template("index.html",name=name)
+
+    #inside my HTML templates pass the jinja syntax
+    <p> Hello, {{name}} </p>
+
+    #WHAT CAN JINJA DO- IT helps/perform python logic inside HTML templates
+
+    #HOW DOES JINJA WORK- 1.alreday have predefined templates
+                           2.passing jinja sysntax  {{}} inside the templates
+                           3.your flask application provided data to be passed inside jinja
+                           4. data is rendered   
+
+    #WHAT CAN WE PASS INSIDE JINJA
+        1.SIMPLE VARIABLES-once you've passed this variable as parameter inside render_template-
+        pass the variable inside jinja 
+        syntax{{variable}} pass the same name of the variable e.g data is placed on the Index.html 
+
+        2.CONTROL STRUCTURES-
+        a. Sequence- this means my program is being exceuted sequentially from top to bottom,
+        b. Selection- this are the conditional statements- IF/ELIF/ELSE,SWITCH/BREAK
+        c. Iteration-looping-executing instructions/code until a specified condition is met e.g for loops, while,do-while
+
+    # IMEPLEMENTING CONTROL STRUCTURES WITH JINJA 
+    JINJA syntax when implementing control structures:
+        {% if  %}
+        N/B- You have to end the program 
+        you have to define a starting point and an ending point check index.html
+
+    # STRONG FOCUS ON IF STATEMENTS AND LOOPS
+        # CONDITIONAL STATEMENTS- IF                      
+
+
+TASK.
+Create 2 files products.html and sales.html 
+render them using flask render_template
+
+DISPLAY MY DATABASE ON THE browser
+1.display the raw data from our data base in our browser.
+2.once we can do that- the next step will be display data in a much more organized manner(use of tables)
+
+-Import the function that fetches data you want to view 
+-declare variable inside a route to call that function.
+-declare a second variable 
+
+#POSTING DATA-
+    -.Sending data from a client(web browser,mobile app) to a server
+#DATA FLOW    
+    -A user visits a route and are provided with a form to pass some data
+    -user fills out the forms and submits it 
+        -from form provided to user specify :
+                -action-specifies the route to map to a function-what function to execute '/products'
+                -Method-http method tells FLASK what do with data
+                    1.GET- get or fetch data
+                    2.POST- post or send data to a server
+                    3.PUT- this updates data
+                    4.DELETE-deletes or gets rid of data
+                -name attribute-this is a key that allows request object to access form data 
+                -input type(MAKE SURE YOU DEFINE CORRECT DATA TYPES)
+    -Dpending on a route that was specified FLASK will decide which function to call
+    -This form data will be taken to FLASK 
+    -FLASK extracts data from the form using a request object
+        -the Request object will allow me to access form data from the client
+        -The request object is imported from FLASK.
+        -ONCE PRODUCT IS INSERTED 
+            -Redirect a user to a different route 
+
+            FROM FLASK WE USE REDIRECT(),url_for -they are from flask redirect(url_for('products'))-name of the view function
+
+       EXAMPLE - "p-name":"eggs" -p-name is key which flask will use the key to extract data
+       ENSURE TO IMPORT REQUEST
+
+#POSTING SALES
+FORM-
+    -Action-pass the route to define what function processes the data
+    -Method-telling server what to do with data,GET,POST,PUT DELETE-
+            -data from form comes in key value pairs
+    -Name-key used to access data that a user inputs 
+    take NOTE OF INPUT TYPE
+In our sales FORM:  
+PID-foreign key
+    -display actual product names for the user
+    -pass products data in sales route 
+    -loop through products and display them in a drop-down
+    -pick the PID key from select tag
+Quantity   
+    -have the normal input for quantity of type number
+
+
+
+    PROFIT AND SALES PER DAY
+     DATE IS THE COMMON METRIC PASSED ON X-AXIS 
+     Y- AXIS WE WILL PASS PROFITS AND SALES 
+         - See how profit compares to sales in relation to dates    
+
+        -YOU CAN FETCH DATE FROM EITHER PROFIT PER DAY OR SALES PER DAY -THIS IS BECAUSE
+     BOTH ARE A LIST OF TUPLES,AND EACH OF THE TUPLES HAS A DATE METRIC AS THE FIRST INDEX AND DATE METRIC 
+     IS THE SAME FOR BOTH SALES AND PROFIT    
+        - GET THE DATE FROM SALES PER DAY USING LIST COMPREHENSION AND GET 
+    THE DATE METRIC USING INDEX-WHICH IS [0] 
+
+
+TEMPLATE INHERITANCE
+-functionality that allows me to create a base template which contains common web page elements like the navbar
+footers,headers,    
+-create a base.html page inside templates folder 
+-have common elements and features inside the base.html which are : footers,navigation and headers,title
+-have the other templates inherit from the base,html
+
+
+USER REGISTRATION
+    - Need a users table.
+REGISTER ROUTE on main.py
+
+
+1.taking user input from a register form.
+2.check that all inputs are filled correctly.
+3.User posts the information
+    -method-POST  defined both in form and ROUTE
+    -Getting form data using request.form
+    -request object-request.Method tells server what to do with the data
+                    -request.form gets user input posted from a form 
+                    - PASSWORD HASHING- converts plain text password into a form that cant be easily understood-this is encoding for security purpose
+                        cryptic form - for security reasons.
+                        use bcrypt
+4.Check 
+    if user exists:-select a user using email 
+     - let the user know they've alreday registered and tell them to log instead.[use flash messaging]
+
+  ELSE 
+    -add user  insert user and 
+    -redirect to login.  

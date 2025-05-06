@@ -2,61 +2,62 @@
 {% block title %} Products {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <form action="/add_products" method="post">
-            <div class="mb-3">
-                <label for="" class="form-label fw-bold">Product Name</label>
-                <input type="text" class="form-control" name="p-name" id="" aria-describedby="">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label fw-bold">Buying Price</label>
-                <input type="number" class="form-control" name="b-price"id="">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label fw-bold">Selling Price</label>
-                <input type="number" class="form-control" name="s-price"id="">
-            </div>
-            <div class="mb-3">
-                <label for="" class="form-label fw-bold">Stock Quantity</label>
-                <input type="number" class="form-control" name="stock" id="">
-            </div>
-            <button type="submit" class="btn btn-primary">ADD PRODUCT</button>
-        </form>
-    </div>
-    <div class="container">
-        <h2> These are my Products </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius cupiditate reiciendis ducimus totam, velit
-            provident atque quaerat iure asperiores, laborum fugiat dicta voluptatibus ratione quod? Adipisci
-            repudiandae ratione recusandae.</p>
-    </div>
-    <div class="container">
-        {% for fruits in fruits%}
-        <ul>
-            <li>{{fruits}}</li>
-        </ul>
-        {% endfor %}
-    </div>
-    <div class="container">
-        <table class="table table-striped-columns table table-hover table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Product ID</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Buying Price</th>
-                    <th scope="col">Selling price</th>
-                    <th scope="col">Stock Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                {%for product in products%}
-                <tr>
-                    <td>{{product[0]}}</td>
-                    <td>{{product[1]}}</td>
-                    <td>{{product[2]}}</td>
-                    <td>{{product[3]}}</td>
-                    <td>{{product[4]}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-    </div>
-{% endblock %}    
+<div class="container">
+    <h2> These are my Products </h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eius cupiditate reiciendis ducimus totam, velit
+        provident atque quaerat iure asperiores, laborum fugiat dicta voluptatibus ratione quod? Adipisci
+        repudiandae ratione recusandae.</p>
+</div>
+<div class="container">
+    {% for fruits in fruits%}
+    <ul>
+        <li>{{fruits}}</li>
+    </ul>
+    {% endfor %}
+</div>
+<div class="container">
+    <form action="/add_products" method="post">
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Product Name</label>
+            <input type="text" class="form-control" name="p-name" id="" aria-describedby="">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Buying Price</label>
+            <input type="number" class="form-control" name="b-price" id="">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Selling Price</label>
+            <input type="number" class="form-control" name="s-price" id="">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label fw-bold">Stock Quantity</label>
+            <input type="number" class="form-control" name="stock" id="">
+        </div>
+        <button type="submit" class="btn btn-primary">ADD PRODUCT</button>
+    </form>
+</div>
+
+<div class="container">
+    <table class="table table-striped-columns table table-hover table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Buying Price</th>
+                <th scope="col">Selling price</th>
+                <th scope="col">Stock Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for product in products%}
+            <tr>
+                <td>{{product[0]}}</td>
+                <td>{{product[1]}}</td>
+                <td>{{product[2]}}</td>
+                <td>{{product[3]}}</td>
+                <td>{{product[4]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</div>
+{% endblock %}

@@ -8,19 +8,54 @@
     {% else %}
     <p>data not provided</p>
     {% endif %}
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad accusamus eligendi temporibus repellendus
-        perferendis adipisci numquam quia unde ipsum, eos nisi dolorum, non animi hic quibusdam, doloremque
-        veniam
-        optio
-        impedit.</p>
-</div>
+
+    <div class="hero">
+        <h1>Welcome to Your POS Dashboard</h1>
+        <p>
+            Welcome to your Point of Sale (POS) dashboard — your centralized platform for managing day-to-day business
+            operations. This powerful system is tailored to simplify your workflow by allowing you to process sales
+            quickly, track inventory accurately, and monitor customer behavior efficiently. With real-time analytics and
+            organized reporting tools, you can make informed decisions that help grow your business. Whether you're
+            running a retail store, a cafe, or a small kiosk, our POS solution empowers you to work smarter and serve
+            customers better.
+        </p>
+    </div>
 <div class="container">
     {% for num in num%}
     <li>{{num}}</li>
     {% endfor %}
 </div>
 </div>
+<div class="container">
+    <input type="text" placeholder="Search product..." id="productSearch" />
+</div>
 
+<div class="container">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2025-05-06</td>
+                <td>Sugar 2kg</td>
+                <td>2</td>
+                <td>Ksh 500</td>
+            </tr>
+            <!-- more rows -->
+        </tbody>
+    </table>
+</div>
+<div class="container">
+
+    <button onclick="location.href='add-product.html'">+ Add New Product</button>
+</div>
 
 
 

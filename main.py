@@ -2,6 +2,7 @@ from flask import Flask,render_template,request,redirect,url_for
 from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users
 from flask_bcrypt import Bcrypt
 
+#instantiate your application:-initializion of flask.
 app=Flask(__name__)
 
 #initializion of bcrypt.
@@ -9,7 +10,10 @@ bcrypt=Bcrypt(app)
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+     user={"name":"Akinyi","location":"Nairobi","area":"Luanda"}
+     num=[1,2,3,4,5,6]
+     return render_template("index.html",data=user,num=num) #declaring variable for variable e.g data=name
+     
 
 @app.route('/products')
 def products():

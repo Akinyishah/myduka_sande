@@ -69,27 +69,38 @@ def Dashboard():
                            date=date,s_day=s_day,p_day=p_day)
 
 
-@app.route('/Register',methods=['POST'])
+@app.route('/Register',methods=['GET','POST'])
 def register():
-     name=request.form['name']
-     email=request.form['email']
-     phone_number=request.form['phone']
-     password=request.form['pass']
+     if request.method=='POST':
+         name=request.form['name']
+         email=request.form['email']
+         phone_number=request.form['phone']
+         password=request.form['pass']
+         hashed_password=bcrypt.generate_password_hash(password).decode('utf-8')
+         user=check_user(email)
+         if not user:
+             new_user=(name,email,phone_number,hashed_password)
+             add_users(new_user)
+             return redirect(url_for('login'))
+         else:
+             print('already registered')
+     return render_template("register.html")
+         
 
-     hashed_password=bcrypt.check_password_hash(password).decode('utf-8')
-     user=check_user(email)
-     if user ==None:
-         new_user=(name,email,phone_number,hashed_password)
-         add_users(new_user)
-         return redirect(url_for('login')) #passing name of the function
-     else:
-         pass
-
-     return render_template('register.html')
-
-
-@app.route('/login')
+@app.route('/login',methods=['GET','POST'])
 def login():
+    if request.method=='POST':
+        email=request.form=['email']
+        password=request.form=['pass']
+
+        user=check_user(email)
+        if not user:
+            return redirect(url_for('register'))
+        else:
+            if bcrypt.check_password_hash(user[-1],password):
+                return redirect(url_for('Dashboard'))
+            else:
+                print("incorrect password")
     return render_template('login.html')
 
 

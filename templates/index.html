@@ -2,123 +2,19 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-<div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{{ url_for('static', filename='sande diary farm.jpg') }}" class="d-block w-100 h-50" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>SANDE'S STORE.</h2>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<div class="card text-bg-info mt-5">
+  <img src="{{ url_for('static', filename='sande diary farm.jpg') }}" class="img-fluid" alt="..."
+    style="object-fit: cover; min-height: ">
+  <div class="card-img-overlay card-img-overlay d-flex flex-column justify-content-center text-center"
+    style="background-color: rgba(0, 0, 0, 0.5)">
+    <h2 class="card-title text-white mb-4">WELCOME TO MY DUKA</h2>
+    <p class="card-text text-white px-lg-5 mx-lg-5">Your centralized platform for managing day-to-day business
+      operations. This powerful system is tailored to simplify your workflow by allowing you to process sales
+      quickly, track inventory accurately, and monitor customer behavior efficiently. With real-time analytics and
+      organized reporting tools, you can make informed decisions that help grow your business...</p>
   </div>
-
-
-<div class="container">
-    {% if data %}
-    <h1>SANDE'S STORE.</h1>
-    {% else %}
-    <p>data not provided</p>
-    {% endif %}
-
-    <div class="hero">
-        <h1>Welcome to Your POS Dashboard</h1>
-        <p>
-            Welcome to your Point of Sale (POS) dashboard — your centralized platform for managing day-to-day business
-            operations. This powerful system is tailored to simplify your workflow by allowing you to process sales
-            quickly, track inventory accurately, and monitor customer behavior efficiently. With real-time analytics and
-            organized reporting tools, you can make informed decisions that help grow your business. Whether you're
-            running a retail store, a cafe, or a small kiosk, our POS solution empowers you to work smarter and serve
-            customers better.
-        </p>
-    </div>
-    <div class="container-fluid d-flex justify-content:space-evenly">
-        <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-          <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-          <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Button</a>
-            </div>
-          </div>
-    </div>
-<div class="container">
-    {% for num in num%}
-    <li>{{num}}</li>
-    {% endfor %}
-</div>
-</div>
-<div class="container">
-    <input type="text" placeholder="Search product..." id="productSearch" />
 </div>
 
-<div class="container">
-
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Product</th>
-                <th>Qty</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>2025-05-06</td>
-                <td>Sugar 2kg</td>
-                <td>2</td>
-                <td>Ksh 500</td>
-            </tr>
-            <!-- more rows -->
-        </tbody>
-    </table>
-</div>
-<div class="container">
-
-    <button onclick="location.href='add-product.html'">+ Add New Product</button>
-</div>
 
 
 

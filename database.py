@@ -102,9 +102,9 @@ def profit_per_day():
 
 
 def check_user(email):
-   query="select * from users WHERE email =%s"
+   query="select * from users WHERE email = %s"
    cur.execute(query,(email,) )
-   user=cur.fetchall()
+   user=cur.fetchone()
    return user
 
 

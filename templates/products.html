@@ -4,20 +4,15 @@
 {% block content %}
 <div class="hero">
     <h1>DISCOVER GENUINE PRODUCTS </h1>
-    <p>
-        Welcome to your Point of Sale (POS) dashboard — your centralized platform for managing day-to-day business
-        operations. This powerful system is tailored to simplify your workflow by allowing you to process sales quickly,
-        track inventory accurately, and monitor customer behavior efficiently. With real-time analytics and organized
-        reporting tools, you can make informed decisions that help grow your business. Whether you're running a retail
-        store, a cafe, or a small kiosk, our POS solution empowers you to work smarter and serve customers better.
-    </p>
+  <p>
+        At SANDE'S Duka, we bring you genuine goods made with quality materials,care and love. Each product is
+        crafted to perfection, ensuring authencity and wholesome satisfaction. </p> 
 </div>
-<div class="container">
-    {% for fruits in fruits%}
-    <ul>
-        <li>{{fruits}}</li>
-    </ul>
-    {% endfor %}
+<div class="container text-warning">
+    Why Choose Us?
+✓ Fresh Daily – Straight from our oven to your table
+✓ Quality Ingredients – Locally sourced, always natural
+✓ Easy Ordering – Quick processing & reliable delivery.
 </div>
 <div class="container">
     <form action="/add_products" method="post">

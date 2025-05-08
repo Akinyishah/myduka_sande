@@ -10,14 +10,18 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar bg-primary">
+        <nav class="navbar bg-tertiary">
             <div class="container-fluid">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/products">Products</a>
-                <a class="nav-link" href="/sales">Sales</a>
-                <a class="nav-link" href="/Dashboard">Dashboard</a>
-                <a class="nav-link" href="/Register">Register</a>
-                <a class="nav-link" href="/login">login</a>
+                <a class="navbar-brand fw-bold" href="#">
+                    <img src="{{ url_for('static', filename='sande diary farm.jpg') }}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    MY DUKA
+                  </a>
+                <a class="nav-link active fw-bold" aria-current="page" href="/">Home</a>
+                <a class="nav-link fw-bold" href="/products">Products</a>
+                <a class="nav-link fw-bold" href="/sales">Sales</a>
+                <a class="nav-link fw-bold" href="/Dashboard">Dashboard</a>
+                <a class="nav-link fw-bold" href="/Register">Register</a>
+                <a class="nav-link fw-bold" href="/login">login</a>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -52,7 +56,7 @@
 
 
 
-    <footer>
+    <footer class="mt-5">
         <p>&copy; 2025 Sande Store</p>
     </footer>
 

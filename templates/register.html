@@ -1,29 +1,25 @@
 {% extends "base.html" %}
 {% block title %} Register {% endblock %}
-{% block content %} 
-<div class="container">
+{% block content %}
+<div class="container align-center">
     <form action="/Register" method="post">
-        <div class="mb-3">
-            <label for="" class="form-label fw-bold">Full Name</label>
-            <input type="text" class="form-control" name="name" id="" aria-describedby="">
+        <label for="" class="fw-bold">Full name:</label><br>
+        <input type="text" name="name"><br>
+        <label for="" class="fw-bold">Email_address:</label><br>
+        <input type="email" name="email"><br>
+        <label for="" class="fw-bold">Phone_Number:</label><br>
+        <input type="tel" name="phone"><br>
+        <label for="" class="fw-bold">Password:</label><br>
+        <input type="password" name="pass"><br>
+        <div class="">
+            <input type="checkbox" class="form-check-input mt-3" id="exampleCheck1">
+            <label class="form-check-label mt-3" for="exampleCheck1">Check me out</label>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label fw-bold">Email_address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="submit" class="btn btn-primary mt-3" value="Register">
+        <div class="container signin mt-4">
+            <p>Already have an account? <a href="#">log in</a>.</p>
         </div>
-        <div class="mb-3">
-            <label for="" class="form-label fw-bold">Phone_Number</label>
-            <input type="tel" class="form-control" name="phone" id="" aria-describedby="">
-        </div>      
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
-            <input type="password" class="form-control" name="pass" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
+
 {% endblock %}

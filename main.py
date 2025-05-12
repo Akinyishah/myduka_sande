@@ -119,6 +119,9 @@ def login():
                 flash("incorrect password","danger")
     return render_template('login.html')
 
+@app.route('/Contact Us')
+def contact_Us():
+    return render_template('contact_us.html')
 
 
 

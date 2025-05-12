@@ -1,32 +1,52 @@
 {% extends "base.html" %}
 {% block title %} Sales {% endblock %}
 
-{% block content %} 
+{% block content %}
 <div class="container text-center text-primary ">
-    <h3>SMART SALES</h3>
-    <P>Sales system designed to save time and boost profits.transactions processing are faster,sales are tracked
-        real-time and customers served efficiently – all at a  one stop place..</P>
+    <h3 class=" fw-bold text-success">SMART SALES</h3>
+    <P class="fw-bold fs-3">Sales system designed to save time and boost profits.transactions processing are faster,sales are tracked
+        real-time and customers served efficiently – all at a one stop place..</P>
 </div>
-<div class="container">
-    <form action="/make_sale" method="post">
-        <div>
-            <select name="pid">
-                <option value="">Select product</option>
-                {% for product in products %}
-                <option value={{product[0]}}>{{product[1]}}</option>
-                {% endfor %}
-            </select>
-        </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Sales
+</button>
 
-        <div class=" mt-4">
-            <label for=""><strong>Quantity</strong></label> <br>
-            <input type="number" name="quantity">
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Make Sale </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/make_sale" method="post">
+                    <div>
+                        <select name="pid">
+                            <option value="">Select product</option>
+                            {% for product in products %}
+                            <option value={{product[0]}}>{{product[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
 
-        <div class="mt-4">
-            <button type="submit"><strong>Make sale</strong></button>
+                    <div class=" mt-4">
+                        <label for=""><strong>Quantity</strong></label> <br>
+                        <input type="number" name="quantity">
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit"><strong>Make sale</strong></button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
-    </form>
+    </div>
 </div>
 <div class="container mt-4">
     <table class="table table-striped-columns table table-hover table table-bordered">

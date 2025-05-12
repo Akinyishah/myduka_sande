@@ -2,14 +2,11 @@
 {% block title %} Dashboard {% endblock %}
 
 {% block content %}
-<div class="container">
-
-    <p>{{product_name}}</p>
-    <p>{{p_product}}</p>
-    <p>{{s_product}}</p>
-    <p>{{p_day}}</p>
-    <p>{{s_day}}</p>
-  
+<div class="hero text-center text-primary">
+  <div class="hero text-center">
+    <h3 class="fs-2 fw-bold text-success">ANALYTICS</h3>
+    <p class="fw-bold fs-3">At SANDE'S Duka,With real-time analytics and organized reporting tools, you can make
+      informed decisions that help grow your business..</p>
   </div>
   <div class="container">
     <canvas id="bar-chart" width="800" height="450"></canvas>
@@ -17,7 +14,7 @@
   <div class="container">
     <canvas id="line-chart" width="800" height="450"></canvas>
   </div>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   <script>
     new Chart(document.getElementById("bar-chart"), {
@@ -45,8 +42,8 @@
       }
     }
           });
-  
-  
+
+
     //linechart
     new Chart(document.getElementById("line-chart"), {
       type: 'line',
@@ -72,9 +69,9 @@
       }
     }
   });
-  
+
   </script>
-  
 
 
-{% endblock %}
+
+  {% endblock %}

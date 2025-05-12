@@ -1,32 +1,37 @@
 {% extends "base.html" %}
 {% block title %} Register {% endblock %}
 {% block content %}
-<div class="container">
-    <form action="/Register" method="post">
-        <div class="mb-3">
-            <label for="" class="form-label fw-bold">Full Name</label>
-            <input type="text" class="form-control border-box w-50" name="name" id="" aria-describedby="">
+<div class="container-fluid  d-flex justify-content-center align-items-center min-vh-100 pt-1">
+    <div class="card p-4 border border-3" style="width: 100%; max-width: 600px;">
+        <form action="/Register" method="post">
+            <div class="mb-3">
+                <label for="" class="form-label fw-bold">Full Name</label>
+                <input type="text" class="form-control border-box w-100" name="name" id="" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label fw-bold">Email_address</label>
+                <input type="email" class="form-control border-box w-100" name="email" id="exampleInputEmail1"
+                    aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label fw-bold">Phone_Number</label>
+                <input type="tel" class="form-control border-box w-100" name="phone" id="" aria-describedby="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
+                <input type="password" class="form-control border-box w-100" name="pass" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary border-box w-80">Register</button>
+            </div>
+        </form>
+        <div class="container signin mt-4">
+            <p>Already have an account? <a href="/login">log in</a>.</p>
         </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label fw-bold">Email_address</label>
-            <input type="email" class="form-control border-box w-50" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="" class="form-label fw-bold">Phone_Number</label>
-            <input type="tel" class="form-control border-box w-50" name="phone" id="" aria-describedby="">
-        </div>      
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label fw-bold">Password</label>
-            <input type="password" class="form-control border-box w-50" name="pass" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary border-box w-50">Register</button>
-    </form>
-    <div class="container signin mt-4">
-        <p>Already have an account? <a href="/login">log in</a>.</p>
     </div>
 </div>
 

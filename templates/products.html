@@ -3,39 +3,52 @@
 
 {% block content %}
 <div class="hero">
-    <h1>DISCOVER GENUINE PRODUCTS </h1>
-  <p>
+    <h1 class=" fw-bold text-primary">DISCOVER GENUINE PRODUCTS </h1>
+  <p class="fs-3 fw-bold">
         At SANDE'S Duka, we bring you genuine goods made with quality materials,care and love. Each product is
         crafted to perfection, ensuring authencity and wholesome satisfaction. </p> 
 </div>
-<div class="container text-warning">
-    Why Choose Us?
-✓ Fresh Daily – Straight from our oven to your table
-✓ Quality Ingredients – Locally sourced, always natural
-✓ Easy Ordering – Quick processing & reliable delivery.
-</div>
-<div class="container">
-    <form action="/add_products" method="post">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Products
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">ADD PRODUCTS</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <form action="/add_products" method="post">
         <div class="mb-3">
             <label for="" class="form-label fw-bold">Product Name</label>
-            <input type="text" class="form-control" name="p-name" id="" aria-describedby="">
+            <input type="text" class="form-control border-box w-50" name="p-name" id="" aria-describedby="">
         </div>
         <div class="mb-3">
             <label for="" class="form-label fw-bold">Buying Price</label>
-            <input type="number" class="form-control" name="b-price" id="">
+            <input type="number" class="form-control border-box w-50" name="b-price" id="">
         </div>
         <div class="mb-3">
             <label for="" class="form-label fw-bold">Selling Price</label>
-            <input type="number" class="form-control" name="s-price" id="">
+            <input type="number" class="form-control border-box w-50" name="s-price" id="">
         </div>
         <div class="mb-3">
             <label for="" class="form-label fw-bold">Stock Quantity</label>
-            <input type="number" class="form-control" name="stock" id="">
+            <input type="number" class="form-control border-box w-50" name="stock" id="">
         </div>
-        <button type="submit" class="btn btn-primary">ADD PRODUCT</button>
+        <button type="submit" class="btn btn-primary border-box w-50">ADD PRODUCT</button>
     </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
-
 <div class="container">
     <table class="table table-striped-columns table table-hover table table-bordered">
         <thead>

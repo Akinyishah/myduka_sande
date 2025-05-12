@@ -3,39 +3,49 @@
 
 {% block content %}
 <div class="card text-bg-info mt-5">
-  <img src="{{ url_for('static', filename='sande diary farm.jpg') }}" class="img-fluid" alt="..."
-    style="object-fit: cover; min-height: ">
-  <div class="card-img-overlay card-img-overlay d-flex flex-column justify-content-center text-center"
-    style="background-color: rgba(0, 0, 0, 0.5)">
-    <h2 class="card-title text-white mb-4">WELCOME TO MY DUKA</h2>
-    <p class="card-text text-white px-lg-5 mx-lg-5">Your centralized platform for managing day-to-day business
-      operations. This powerful system is tailored to simplify your workflow by allowing you to process sales
-      quickly, track inventory accurately, and monitor customer behavior efficiently. With real-time analytics and
-      organized reporting tools, you can make informed decisions that help grow your business...</p>
-  </div>
+    <div class="d-flex justify-content-center align-items-center min-vh-100 w-50">
+  <img src="{{ url_for('static', filename='sande diary farm.jpg') }}" class="img-fluid" alt="...">
+    </div>
+    <div class="card-img-overlay card-img-overlay d-flex flex-column justify-content-center text-center text-decoration:overline"
+        style="background-color: rgba(0, 0, 0, 0.5)">
+        <h2 class="card-title text-white mb-4 fs-3">WELCOME TO MY DUKA</h2>
+        <p class="card-text text-white px-lg-5 mx-lg-5 fw-bold">Your centralized platform for managing day-to-day business
+            operations. <br>This powerful system is tailored to simplify your workflow by allowing you to process sales
+            quickly, <br> track inventory accurately, and monitor customer behavior efficiently. .</p>
+    </div>
 </div>
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5 ">
+    <h3 class="text-primary text-center fw-bold">WHY CHOOSE US</h3>
     <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card">
+        <div class="col-md-4 mb-4">
+            <div class="card w-70">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h4 class="card-title">✓ Easier Management</h4>
+                    <p class="card-text">Platform for managing day-to-day business operations..</p> <br> <br>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
+        <div class="col-md-4 mb-4">
+            <div class="card w-70">
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h4 class="card-title">✓ WorkFlow Management </h4>
+                    <p class="card-text"> This powerful system is tailored to simplify your workflow by allowing you to
+                    process sales quickly, track inventory accurately.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card w-70">
+                <div class="card-body">
+                    <h4 class="card-title">✓Customer satisfaction </h4>
+                    <p class="card-text">Monitor customer behavior efficiently and effectively and advice accordingly</p> <br>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 

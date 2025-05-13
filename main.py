@@ -123,6 +123,13 @@ def login():
 def contact_Us():
     return render_template('contact_us.html')
 
+@app.route('/logout')
+@login_required
+def logout():
+    session.pop('email',None)
+    flash('You have logged out','info')
+    return redirect(url_for('login'))
+
 
 
 app.run(debug=True)

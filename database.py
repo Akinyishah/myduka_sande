@@ -20,8 +20,14 @@ def fetch_sales():
  sales=cur.fetchall()
  return sales
 
+def fetch_users():
+   cur.execute('select * from users;')
+   users=cur.fetchall()
+   return users
+
 # fetch_sales() 
 # fetch_products()  
+# fetch_users()
 #FETCHING DATA
 def fetch_data(table):
   cur.execute(f"select * from {table} ;")
@@ -48,7 +54,7 @@ def insert_sales():
 
 
 def insert_products_method_2(values):
-  insert = f"insert into products(name,buying_price,selling_price,stock_quantity)values{values}"
+  insert = f"insert into products(name,buying_price,selling_price)values{values}"
   cur.execute(insert)
   conn.commit()
 
@@ -64,7 +70,7 @@ def insert_sales_method_2(values):
 
 #INSERT PRODUCTS METHOD 2
 def insert_products_method_2(values):
-  insert = f"insert into products(name,buying_price,selling_price,stock_quantity)values{values}"
+  insert = f"insert into products(name,buying_price,selling_price)values{values}"
   cur.execute(insert)
   conn.commit()
 #product1=("laptop",24500,32600,70) #should be outside the def function.After conn.commit remove indentation
@@ -102,14 +108,25 @@ def profit_per_day():
 
 
 def check_user(email):
-   query="select * from users WHERE email = %s"
-   cur.execute(query,(email,) )
+   query="select * from users WHERE email =%s"
+   cur.execute(query,(email,))
    user=cur.fetchone()
    return user
 
 
 def add_users (user_details):
-   query="insert into users(name,email,phone_number,password)values(%s,%s,%s,%s)"
+   query="insert into users(full_name,email,phone_number,password)values(%s,%s,%s,%s)"
    cur.execute(query,user_details)
    conn.commit()
    cur.close()
+
+def fetch_stock():
+ cur.execute('select * from stock;')
+ stock=cur.fetchall()
+ return stock
+
+
+def add_stock_method_2(values):
+  insert ="insert into stock(pid,stock_quantity,created_at)values(%s,%s,'now()')"
+  cur.execute(insert,values)
+  conn.commit()

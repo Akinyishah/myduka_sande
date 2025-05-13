@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %} Sales {% endblock %}
+
+{% block content %}
+<div class="container text-center ">
+    <h3 class="fs-2 fw-bold text-success">SMART STOCK</h3>
+    <P class="fw-bold fs-3">Sales system designed to save time and boost profits.transactions processing are
+        faster,sales are tracked
+        real-time and customers served efficiently – all at a one stop place..</P>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Stock
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Adding Stock </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/add_stock" method="post">
+                    <div>
+                        <select name="pid">
+                            <option value="">Select product</option>
+                            {% for product in products %}
+                            <option value={{product[0]}}>{{product[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class=" mt-4">
+                        <label for=""><strong>Quantity</strong></label> <br>
+                        <input type="number" name="quantity">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Stock</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container mt-4">
+    <table class="table table-striped-columns table table-hover table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Sales ID</th>
+                <th scope="col">PID</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for sale in sales%}
+            <tr>
+                <td data-label="">{{sale[0]}}</td>
+                <td data-label="">{{sale[1]}}</td>
+                <td data-label="">{{sale[2]}}</td>
+                <td data-label="">{{sale[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

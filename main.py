@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request,redirect,url_for,flash,session
-from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users
+from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users,fetch_stock,insert_stock,available_stock
+from flask_bcrypt import Bcrypt
 from flask_bcrypt import Bcrypt
 from functools import wraps
 
@@ -48,6 +49,24 @@ def sales():
   sales=fetch_sales()
   products=fetch_products()
   return render_template("sales.html",sales=sales,products=products)  
+
+@app.route('/stock')
+def stock():
+    #GET STOCKS using products 
+    products=fetch_products()
+    stock=fetch_stock()
+    return render_template('stock.html',products=products,stock=stock)
+
+@app.route('/add_stock',methods=['GET','POST'])
+def add_stock():
+    if request.method=='POST':
+        pid=request.form['pid']
+        quantity=request.form['quantity']
+        new_stock=(pid,quantity)
+        insert_stock(new_stock)
+        flash('stock added successfully','success')
+        return redirect(url_for('stock'))
+
 
 @app.route('/make_sale',methods=['POST'])
 def make_sale():

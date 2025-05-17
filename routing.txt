@@ -279,3 +279,46 @@ stock going to keep track of quantity of products we have
 checking if stock is enough we have to:
 
      select stock_quantity from stock;           
+ DATA TABLES:-all the below links are placed on base.html
+JSS put them down using the script SRC 
+https://code.jquery.com/jquery-3.7.1.js
+https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js
+https://cdn.datatables.net/2.3.1/js/dataTables.js
+https://cdn.datatables.net/2.3.1/js/dataTables.bootstrap5.js
+
+
+TABLE ITSELF 
+Use the script tag and place it down after the script src 
+new DataTable('#example');
+
+
+CSS- place at the top using the <link rel="stylesheet" href
+https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css
+https://cdn.datatables.net/2.3.1/css/dataTables.bootstrap5.css
+
+
+COALESCE-if you find a stock is null return 0
+10
+15
+20
+100
+    145-tOTAL STOCKS
+#MAKING A SALES
+    CHECK IF YOU HAVE ENOUGH PRODUCTS TO SELL    
+    12
+    20
+    5
+        -37 -TOTAL SOLD 
+Available_stock=total_stock-total_sold
+
+NULL-Means does not exist
+0- is an actual value/Number
+Type casting changing numbers to float
+
+UPDATE TABLE -update is done 1 product at a time 
+UPDATE table name
+SET where products name is milk
+WHERE ID 2
+
+
+

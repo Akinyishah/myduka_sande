@@ -45,7 +45,7 @@
   </div>
 </div>
 <div class="container">
-  <table class="table table-striped-columns table table-hover table table-bordered">
+  <table id="example" class="table table-striped">
     <thead>
       <tr>
         <th scope="col">Product ID</th>
@@ -61,8 +61,56 @@
         <td>{{product[1]}}</td>
         <td>{{product[2]}}</td>
         <td>{{product[3]}}</td>
+        <td>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#editModal{{product[0]}}">
+            Edit product
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="editModal{{product[0]}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title fs-5" id="editModalLabel{{ product[0] }}">Edit Product</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/update_product" method="post">
+                    <div class="mb-3">
+                      <input type="hidden" value="{{ product[0] }}" id="productID{{ product[0] }}" name="pid">
+                    </div>
+                    <div class="mb-3">
+                      <label for="productName" class="form-label">ProductName</label>
+                      <input type="text" value="{{ product[1] }}" id="productName{{ product[0] }}" name="name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="BuyingPrice" class="form-label">Buying Price</label>
+                      <input type="number" value="{{ product[2] }}" id="buyingPrice{{ product[0] }}"
+                        name="buying_price">
+                    </div>
+                    <div class="mb-3">
+                      <label for="SellingPrice" class="form-label">Selling Price</label>
+                      <input type="number" value="{{ product[3] }}" id="sellingPrice{{ product[0] }}"
+                        name="selling_price">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Edit Product</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
       </tr>
       {% endfor %}
     </tbody>
+  </table>
 </div>
+
+
 {% endblock %}

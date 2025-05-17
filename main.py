@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request,redirect,url_for,flash,session
-from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users,fetch_stock,insert_stock,available_stock
+from database import fetch_products,insert_products_method_2,fetch_sales,insert_sales_method_2,profit_per_product,sales_per_product,sales_per_day,profit_per_day,check_user,add_users,fetch_stock,insert_stock,fetch_stock,insert_stock,available_stock
 from flask_bcrypt import Bcrypt
 from flask_bcrypt import Bcrypt
 from functools import wraps
@@ -43,6 +43,18 @@ def add_products():
     insert_products_method_2(new_product)
     return redirect(url_for('products'))
 
+@app.route('/update_product',methods=['GET','POST'])
+def update_product():
+    if request.method=='POST':
+        pid=request.form['pid']
+        name=request.form['name']
+        buying_price=request.form["buying_price"]
+        selling_price=request.form["selling_price"]        
+        edited_product=(name,buying_price,selling_price,pid)
+        edit_product(edited_product)
+        flash("product edited successfully","success")
+        return redirect(url_for('product'))
+
 @app.route('/sales')
 @login_required
 def sales():
@@ -73,9 +85,17 @@ def make_sale():
     product_id=request.form['pid']
     quantity=request.form['quantity']
     new_sale=[product_id,quantity]
+    stock_available=available_stock(product_id)
+    if stock_available is None:
+        flash("invalid product ID or no stock information","danger")
+        return redirect(url_for('sales'))
+    
+    if stock_available <float(quantity):
+        flash("insufficient stock","info")
+        return redirect(url_for('sales'))
     insert_sales_method_2(new_sale)
+    flash("sale made","success")
     return redirect(url_for('sales'))
-
 
 @app.route('/Dashboard')
 @login_required

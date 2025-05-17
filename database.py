@@ -108,13 +108,12 @@ def profit_per_day():
 
 
 def check_user(email):
-      query="select * from users WHERE email =%s"
-      cur.execute(query,(email,))
-      user=cur.fetchone()
-      return user
-
-
-def add_users (user_details):
+    query="select * from users WHERE email = %s"
+    cur.execute(query,(email,))
+    user=cur.fetchone()
+    return user
+   
+def add_users (user_details): 
       query="insert into users(full_name,email,phone_number,password)values(%s,%s,%s,%s)"
       cur.execute(query,user_details)
       conn.commit()
@@ -131,9 +130,14 @@ def insert_stock(values):
     cur.execute(insert,values)
     conn.commit()
 
+ 
 def available_stock(pid):
     cur.execute("select coalesce(sum(stock_quantity), 0) from stock where pid =%s", (pid,))
     total_stock=cur.fetchone()[0]
     cur.execute("select sum(sales.quantity) from sales where pid =%s", (pid,))
     total_sold=cur.fetchone()[0] or 0
     return total_stock-total_sold    
+   
+
+
+
